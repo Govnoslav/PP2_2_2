@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>AGE</th>
+            <th>PRICE</th>
+        </tr>
+        <tr th:each="car,iterIndex : ${cars}">
+            <td th:text="${iterIndex.count}">Name</td>
+            <td th:text="${car.name}">Name</td>
+            <td th:text="${car.age}">Name</td>
+            <td th:text="${car.price}">Name</td>
+        </tr>
+    </table>
+
+</body>
+</html>
