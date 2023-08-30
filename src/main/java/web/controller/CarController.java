@@ -9,6 +9,7 @@ import web.entity.Car;
 import web.services.CarService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping(value = "/cars")
@@ -21,11 +22,12 @@ public class CarController {
 
     @GetMapping
     public String getCar(Model model,
-                         @RequestParam(value = "count", required = false, defaultValue = "5")int count) {
-        List<Car> cars = count >= 5 ? carService.findAllCars() : carService.findExactlyNumberOfCars(count);
+                         @RequestParam(value = "count", required = false, defaultValue = "5") int  count) {
+        List<Car> cars = carService.findAllCars(count);
 
-        model.addAttribute("cars",cars);
+        model.addAttribute("cars", cars);
 
         return "cars";
     }
+
 }

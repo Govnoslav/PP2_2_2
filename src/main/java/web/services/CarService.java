@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import web.entity.Car;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CarService {
@@ -15,8 +16,10 @@ public class CarService {
         this.cars = cars;
     }
 
-    public List<Car> findExactlyNumberOfCars(int count) {
-        return cars.subList(0,count);
+    public List<Car> findAllCars(int count) {
+
+        List<Car> car = count <= 4 ? cars.subList(0, count): cars;
+        return car;
     }
 
     public List<Car> findAllCars() {
